@@ -1,0 +1,31 @@
+{% extends './base.html' %} {% block title %} Django Blog - Log In Page Log Here
+{% endblock title %} {% block content %}
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+/>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <h2>Login Here</h2>
+        <form method="post">
+          {% csrf_token %} {{ form.non_field_errors }}
+          <div class="form-group">
+            {{ form.username }} {{ form.username.errors }}
+          </div>
+          <div class="form-group">
+            {{ form.password }} {{ form.password.errors }}
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div>
+          <span>If You don't have an account </span
+          ><a href="{% url 'registration' %}">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock content %}
